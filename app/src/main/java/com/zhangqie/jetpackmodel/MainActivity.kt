@@ -10,13 +10,14 @@ import com.zhangqie.jetpackmodel.livedata.LiveDataActivity
 import com.zhangqie.jetpackmodel.navigation.LoginActivity
 import com.zhangqie.jetpackmodel.room.RoomActivity
 import com.zhangqie.jetpackmodel.viewmodel.ViewModelActivity
+import com.zhangqie.jetpackmodel.zproject1.ProjectMain1
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
 
     private val strings = arrayOf("ViewModel", "LiveData", "Room",
-            "Navigation", "LiveData", "Room", "Paging")
+            "Navigation", "小项目测试1", "Room", "Paging")
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,7 +43,7 @@ class MainActivity : AppCompatActivity() {
         }else if (position == 3) {
             intent = Intent(this@MainActivity, LoginActivity::class.java)
         }else if (position == 4) {
-            intent = Intent(this@MainActivity, RoomActivity::class.java)
+            intent = Intent(this@MainActivity, ProjectMain1::class.java)
         }else if (position == 5) {
             intent = Intent(this@MainActivity, RoomActivity::class.java)
         }

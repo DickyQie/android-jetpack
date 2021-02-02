@@ -5,7 +5,7 @@ import com.zhangqie.home.R
 
 /**
  * Created by zhangqie on 2021/2/2
- * Describe:
+ * Describe: 集成时直接使用
  */
 class HomeFragment : BaseFragment() {
 

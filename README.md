@@ -20,15 +20,21 @@
 Room出现错误  Android UserDataBase. UserDataBase_Impl does not exist
 
 是使用Kotlin版本导致的
-
+ ```
 //java Room
 /* implementation 'androidx.room:room-runtime:2.2.1'
 annotationProcessor "androidx.room:room-compiler:2.2.1"*/
 
+ ```
+
 //Kotlin Room
+
+ ```
 implementation 'android.arch.persistence.room:runtime:1.0.0'
 annotationProcessor  'android.arch.persistence.room:compiler:1.0.0'
 kapt 'android.arch.persistence.room:compiler:1.0.0'
+
+ ```
 
 
 

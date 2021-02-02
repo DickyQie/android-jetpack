@@ -32,6 +32,8 @@
         
         <activity android:name=".navigation.LoginActivity"/>
 
+        <activity android:name=".zproject1.ProjectMain1"/>
+
     </application>
 
 </manifest>

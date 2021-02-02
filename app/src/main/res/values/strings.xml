@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">JetPackModel</string>
+
+
+    <string name="bottomname1">首页</string>
+    <string name="bottomname2">项目</string>
+    <string name="bottomname3">公共</string>
+    <string name="bottomname4">我的</string>
+
 </resources>
