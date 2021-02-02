@@ -33,6 +33,8 @@
         <activity android:name=".navigation.LoginActivity"/>
 
         <activity android:name=".zproject1.ProjectMain1"/>
+        <activity android:name=".zproject1.ProjectMain2"/>
+
 
     </application>
 

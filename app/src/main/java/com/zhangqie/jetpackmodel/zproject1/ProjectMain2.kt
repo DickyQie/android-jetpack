@@ -1,6 +1,8 @@
 package com.zhangqie.jetpackmodel.zproject1
 
 import androidx.fragment.app.Fragment
+import com.alibaba.android.arouter.launcher.ARouter
+import com.zhangqie.base.api.AppARouterUrl
 import com.zhangqie.base.base.BaseActivity
 import com.zhangqie.base.ext.init
 import com.zhangqie.jetpackmodel.R
@@ -8,37 +10,37 @@ import com.zhangqie.jetpackmodel.R
 import kotlinx.android.synthetic.main.project1_main.*
 
 
-/*import com.zhangqie.home.fragment.HomeFragment
-import com.zhangqie.mine.fragment.MineFragment
-import com.zhangqie.mpublic.fragment.PublicmFragment
-import com.zhangqie.project.fragment.ProjectFragment*/
-
 /**
  * Created by zhangqie on 2021/2/2
  * Describe:
  *
- * 这里代码要使用前提
- * 项目根目录：gradle.properties
- * isRunModule            =   false
+ * 为了方便组件开发： 这里就可以用ARouter了
  *
+ * 这样是为了 isRunModule    =  true 切换
  *
+ * 这里的代码不报错
  *
- * 集成模式1 集成的方式可以直接使用
+ * 组件项目时（isRunModule    =  true）  每个模块都是一个apk
  *
- * 组件开发： 集成的方式就不可以了
- *
- * 为了方便组件开发，这里我把代码注释了，需要自己打开
+ * 运行的主apk是没用的
  *
  */
- class ProjectMain1 : BaseActivity(){
+ class ProjectMain2 : BaseActivity(){
 
 
     var fragments = arrayListOf<Fragment>()
-    /*private val homeFragment: HomeFragment by lazy { HomeFragment() }
-    private val projectFragment: ProjectFragment by lazy { ProjectFragment() }
-    private val publicNumberFragment: PublicmFragment by lazy { PublicmFragment() }
-    private val mineFragment: MineFragment by lazy { MineFragment() }
-
+    private val homeFragment: Fragment by lazy {
+        ARouter.getInstance().build(AppARouterUrl.PAGER_HOME).navigation() as Fragment
+    }
+    private val projectFragment: Fragment by lazy {
+        ARouter.getInstance().build(AppARouterUrl.PAGER_PROJECT).navigation() as Fragment
+    }
+    private val publicNumberFragment: Fragment by lazy {
+        ARouter.getInstance().build(AppARouterUrl.PAGER_PUBLIC).navigation() as Fragment
+    }
+    private val mineFragment: Fragment by lazy {
+        ARouter.getInstance().build(AppARouterUrl.PAGER_MINE).navigation() as Fragment
+    }
 
     init {
         fragments.apply {
@@ -47,7 +49,7 @@ import com.zhangqie.project.fragment.ProjectFragment*/
             add(publicNumberFragment)
             add(mineFragment)
         }
-    }*/
+    }
 
 
 
@@ -57,7 +59,7 @@ import com.zhangqie.project.fragment.ProjectFragment*/
 
     override fun initView() {
 
-        /*
+
         //初始化viewpager2
         main_viewpager.init(this,fragments,false).run {
             offscreenPageLimit = fragments.size
@@ -77,7 +79,7 @@ import com.zhangqie.project.fragment.ProjectFragment*/
                 }
                 true
             }
-        }*/
+        }
     }
 
     override fun initData() {

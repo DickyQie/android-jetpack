@@ -4,20 +4,20 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
 import com.zhangqie.jetpackmodel.livedata.LiveDataActivity
 import com.zhangqie.jetpackmodel.navigation.LoginActivity
 import com.zhangqie.jetpackmodel.room.RoomActivity
 import com.zhangqie.jetpackmodel.viewmodel.ViewModelActivity
 import com.zhangqie.jetpackmodel.zproject1.ProjectMain1
+import com.zhangqie.jetpackmodel.zproject1.ProjectMain2
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
 
     private val strings = arrayOf("ViewModel", "LiveData", "Room",
-            "Navigation", "小项目测试1", "Room", "Paging")
+            "Navigation", "小项目测试1", "小项目测试2", "Paging")
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
         }else if (position == 4) {
             intent = Intent(this@MainActivity, ProjectMain1::class.java)
         }else if (position == 5) {
-            intent = Intent(this@MainActivity, RoomActivity::class.java)
+            intent = Intent(this@MainActivity, ProjectMain2::class.java)
         }
         startActivity(intent)
     }
