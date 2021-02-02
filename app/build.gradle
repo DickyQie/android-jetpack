@@ -1,0 +1,71 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        applicationId "com.zhangqie.jetpackmodel"
+        minSdkVersion 23
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        kapt {
+            arguments {
+                arg("AROUTER_MODULE_NAME",project.getName())
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.core:core-ktx:1.3.2'
+
+    //java Room
+   /* implementation 'androidx.room:room-runtime:2.2.1'
+    annotationProcessor "androidx.room:room-compiler:2.2.1"*/
+
+    //Kotlin Room
+    implementation 'android.arch.persistence.room:runtime:1.0.0'
+    annotationProcessor  'android.arch.persistence.room:compiler:1.0.0'
+    kapt 'android.arch.persistence.room:compiler:1.0.0'
+
+    implementation project(':library-base')
+
+    if (!isRunModule.toBoolean()) {
+        implementation project(':module-home')
+        implementation project(':module-project')
+        implementation project(':module-public')
+        implementation project(':module-mine')
+    }
+
+
+    kapt rootProject.ext.dependencies.arouterCompiler
+
+
+
+   /* testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'*/
+
+}

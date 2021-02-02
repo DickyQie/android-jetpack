@@ -1,0 +1,95 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+
+
+        //指定room.schemaLocation生成的文件路径
+        //解决room编译警告
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [
+                        "room.schemaLocation"  : "$projectDir/schemas".toString(),
+                        "room.incremental"     : "true",
+                        "room.expandProjection": "true"]
+            }
+        }
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.core:core-ktx:1.3.2'
+
+
+    api rootProject.ext.dependencies.appcompat
+    api rootProject.ext.dependencies.x_constraintlayout
+    api rootProject.ext.dependencies.swipebacklayout
+    api 'com.google.android.material:material:1.2.1'
+    api 'com.google.android:flexbox:2.0.1'
+
+    //androidx UI
+    api 'com.gyf.immersionbar:immersionbar:3.0.0'
+    api rootProject.ext.dependencies.navigation
+    api rootProject.ext.dependencies.navigationUI
+    api rootProject.ext.dependencies.viewModel
+    api rootProject.ext.dependencies.liveData
+
+
+    //全局加载视图框架
+    api 'com.kingja.loadsir:loadsir:1.3.8'
+    /*adapter*/
+    api "com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.4"
+    //加载webview
+    api 'com.just.agentweb:agentweb:4.1.2'
+
+
+    api rootProject.ext.dependencies.arouterApi
+    api rootProject.ext.dependencies.fastJson
+
+
+    api rootProject.ext.dependencies.rxpermissions
+
+
+    /*图片*/
+    api rootProject.ext.dependencies.glide
+
+    api 'org.greenrobot:eventbus:3.2.0'
+
+    api rootProject.ext.dependencies.mmkv
+    api rootProject.ext.dependencies.retrofitConvertGson
+    api rootProject.ext.dependencies.retrofitConvertScalars
+    api rootProject.ext.dependencies.retrofit
+    api rootProject.ext.dependencies.retrofitAdapterRxJava2
+    api rootProject.ext.dependencies.rxJava
+    api rootProject.ext.dependencies.rxAndroid
+    api rootProject.ext.dependencies.okhttp
+
+    api project(':library-db')
+
+
+}

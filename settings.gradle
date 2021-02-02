@@ -1,0 +1,8 @@
+include ':module-mine'
+include ':module-public'
+include ':module-project'
+include ':module-home'
+include ':library-db'
+include ':library-base'
+include ':app'
+rootProject.name = "JetPackModel"
