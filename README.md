@@ -1,9 +1,18 @@
 ### JetPack+组件化+插件化+Arouter+Module
 
 
-前段时间学习JetPack的时候，做项目的时候用到了ARouter，顺便把以前学习的案例分享一下，案例包含了以下内容
+前段时间学习JetPack的时候，写了一个项目，顺便把项目的结构分享一下，案例包含了以下内容
+
+1.集成开发模式(每个模块都是一个组件（Module），最终是单独的apk)
+2.组件开发模式(每个模块都是一个apk)
 
 
+
+ ### "集成开发模式" 和 "组件开发模式"的切换开关 true表示组件独立运行，false表示一个library
+
+gradle.properties中
+
+isRunModule            =   false
 
 
 一个用于帮助 Android App 进行组件化改造的框架 —— 支持模块间的路由、通信、解耦
@@ -35,9 +44,6 @@ annotationProcessor  'android.arch.persistence.room:compiler:1.0.0'
 kapt 'android.arch.persistence.room:compiler:1.0.0'
 
  ```
-
-
-
 
 
 
